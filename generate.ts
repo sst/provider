@@ -11,14 +11,19 @@ for (const provider of providers) {
     continue;
   }
   console.log("generating", name, "version", version);
-  await $`pulumi package add terraform-provider ${provider.terraform}`;
-  const pkg = `./sdks/${provider.name}/package.json`;
-  const file = Bun.file(pkg);
+  const result =
+    await $`pulumi package add terraform-provider ${provider.terraform}`;
+  console.log(result.stdout.toString());
+  const path = result.stdout.toString().match(/at (\/[^\n]+)/)[1];
+  console.log("path", path);
+  process.chdir(path);
+  const file = Bun.file("package.json");
   const json = await file.json();
-  (json.name = name), (json.version = provider.version);
+  json.name = name;
+  json.version = provider.version;
   json.files = ["bin/", "README.md", "LICENSE"];
   if (provider.suffix) json.version += "-" + provider.suffix;
   await Bun.write(file, JSON.stringify(json, null, 2));
-  await $`cd sdks/${provider.name} && bun install && bun run build`;
-  await $`cd sdks/${provider.name} && npm publish --access public`;
+  await $`bun install && bun run build`;
+  await $`npm publish --access public`;
 }
