@@ -12,7 +12,7 @@ for (const provider of providers) {
   }
   console.log("generating", name, "version", version);
   const result =
-    await $`pulumi package add terraform-provider ${provider.terraform}`;
+    await $`pulumi package add terraform-provider ${provider.terraform} ${provider.version}`;
   console.log(result.stdout.toString());
   const path = result.stdout.toString().match(/at (\/[^\n]+)/)[1];
   console.log("path", path);
