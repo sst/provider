@@ -9,5 +9,10 @@
     "terraform": "terraform-community-providers/neon",
     "version": "0.1.8",
     "suffix": "4"
-  }
+  },
+  {
+    "name": "supabase",
+    "terraform": "supabase/supabase",
+    "version": "1.4.1",
+  },
 ]
