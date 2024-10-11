@@ -18,11 +18,13 @@
   {
     "name": "cloudflare5",
     "terraform": "cloudflare/cloudflare",
-    "version": "5.0.0-alpha1"
+    "version": "5.0.0-alpha1",
+    "suffix": "1"
   },
   {
     "name": "turso",
     "terraform": "jpedroh/terraform",
     "version": "0.2.1"
+    "version": "5.0.0-alpha1"
   }
 ]
