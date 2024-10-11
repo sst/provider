@@ -22,7 +22,7 @@
   },
   {
     "name": "turso",
-    "terraform": "jpedroh/terraform-provider-turso",
+    "terraform": "jpedroh/terraform",
     "version": "0.2.1"
   }
 ]
