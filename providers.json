@@ -1,0 +1,13 @@
+[
+  {
+    "name": "planetscale",
+    "terraform": "planetscale/planetscale",
+    "version": "0.0.7"
+  },
+  {
+    "name": "neon",
+    "terraform": "terraform-community-providers/neon",
+    "version": "0.1.8",
+    "suffix": "4"
+  }
+]

@@ -1,0 +1,8 @@
+name: sst-provider
+description: Dummy project for provider generation
+runtime:
+  name: nodejs
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: typescript
