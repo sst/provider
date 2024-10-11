@@ -25,6 +25,5 @@
     "name": "turso",
     "terraform": "jpedroh/terraform",
     "version": "0.2.1"
-    "version": "5.0.0-alpha1"
   }
 ]
