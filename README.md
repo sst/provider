@@ -14,6 +14,7 @@ Submit a PR to add a provider to the `providers.json` file.
     "version": "0.0.7"
   },
 ]
+```
 
 ### Updating a provider
 
