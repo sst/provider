@@ -14,5 +14,10 @@
     "name": "supabase",
     "terraform": "supabase/supabase",
     "version": "1.4.1"
+  },
+  {
+    "name": "turso",
+    "terraform": "jpedroh/terraform-provider-turso",
+    "version": "0.2.1"
   }
 ]
