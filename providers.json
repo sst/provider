@@ -6,9 +6,8 @@
   },
   {
     "name": "neon",
-    "terraform": "terraform-community-providers/neon",
-    "version": "0.1.8",
-    "suffix": "4"
+    "terraform": "kislerdm/neon",
+    "version": "0.6.3"
   },
   {
     "name": "supabase",
