@@ -24,5 +24,10 @@
     "name": "turso",
     "terraform": "registry.terraform.io/celest-dev/turso",
     "version": "0.2.3"
+  },
+  {
+    "name": "momento",
+    "terraform": "momentohq/momento",
+    "version": "0.2.2"
   }
 ]
