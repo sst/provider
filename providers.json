@@ -24,5 +24,10 @@
     "name": "turso",
     "terraform": "registry.terraform.io/jpedroh/turso",
     "version": "0.2.1"
-  }
+  },
+  {
+    "name": "momento",
+    "terraform": "momentohq/momento",
+    "version": "0.2.2"
+  },
 ]
