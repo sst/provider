@@ -1,0 +1,3 @@
+name = fly
+terraform = registry.terraform.io/andrewbaxter/fly
+version = 0.1.17
