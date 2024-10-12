@@ -1,8 +1,9 @@
 name: generate
 
 on:
+  workflow_dispatch:
+  pull_request:
   push:
-    workflow_dispatch:
     branches:
       - master
 
@@ -27,4 +28,9 @@ jobs:
           npm whoami
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: bun run generate.ts
+      - run: |
+          if [ "${{ github.ref }}" = "refs/heads/master" ]; then
+            bun run generate.ts
+          else
+            bun run generate.ts --dry
+          fi

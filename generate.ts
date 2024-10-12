@@ -1,5 +1,7 @@
 import { $ } from "bun";
 
+const dry = process.argv.includes("--dry");
+
 for (const file of new Bun.Glob("*").scanSync("metadata")) {
   const provider = await import(`./metadata/${file}`);
   const version = [provider.version, provider.suffix].filter(Boolean).join("-");
@@ -37,5 +39,5 @@ for (const file of new Bun.Glob("*").scanSync("metadata")) {
   await Bun.write(tsconfig, JSON.stringify(tsjson, null, 2));
 
   await $`bun install && bun run build`;
-  await $`npm publish --access public`;
+  if (!dry) await $`npm publish --access public`;
 }
