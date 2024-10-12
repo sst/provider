@@ -1,0 +1,4 @@
+name = "cloudflare5"
+terraform = "cloudflare/cloudflare"
+version = "5.0.0-alpha1"
+suffix = "1"

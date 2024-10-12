@@ -1,10 +1,9 @@
-import providers from "./providers.json";
 import { $ } from "bun";
 
-for (const provider of providers) {
+for (const file of new Bun.Glob("*").scanSync("metadata")) {
+  const provider = await import(`./metadata/${file}`);
   const version = [provider.version, provider.suffix].filter(Boolean).join("-");
   const name = `@sst-provider/${provider.name}`;
-  // check if version exists on npm
   const resp = await fetch(`https://registry.npmjs.org/${name}/${version}`);
   if (resp.status !== 404) {
     console.log("skipping", name, "version", version, "already exists");
@@ -13,17 +12,30 @@ for (const provider of providers) {
   console.log("generating", name, "version", version);
   const result =
     await $`pulumi package add terraform-provider ${provider.terraform} ${provider.version}`;
-  console.log(result.stdout.toString());
-  const path = result.stdout.toString().match(/at (\/[^\n]+)/)[1];
+  const path = result.stdout
+    .toString()
+    .match(/at (\/[^\n]+)/)
+    ?.at(1);
+  if (!path) {
+    console.log("failed to find path");
+    continue;
+  }
   console.log("path", path);
   process.chdir(path);
-  const file = Bun.file("package.json");
-  const json = await file.json();
+
+  const pkg = Bun.file("package.json");
+  const json = await pkg.json();
   json.name = name;
   json.version = provider.version;
   json.files = ["bin/", "README.md", "LICENSE"];
   if (provider.suffix) json.version += "-" + provider.suffix;
-  await Bun.write(file, JSON.stringify(json, null, 2));
+  await Bun.write(pkg, JSON.stringify(json, null, 2));
+
+  const tsconfig = Bun.file("tsconfig.json");
+  const tsjson = await tsconfig.json();
+  tsjson.compilerOptions.skipLibCheck = true;
+  await Bun.write(tsconfig, JSON.stringify(tsjson, null, 2));
+
   await $`bun install && bun run build`;
   await $`npm publish --access public`;
 }
