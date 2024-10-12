@@ -8,7 +8,7 @@ Submit a PR to add a <provider>.toml to the `metadata` folder
 
 ```toml
 name = "planetscale"
-terraform = "planetscale/planetscale"
+terraform = "registry.terraform.io/planetscale/planetscale"
 version = "0.0.7"
 ```
 
@@ -18,7 +18,7 @@ Submit a PR bumping the version number. If something went wrong and we need to r
 
 ```toml
 name = "planetscale"
-terraform = "planetscale/planetscale"
+terraform = "registry.terraform.io/planetscale/planetscale"
 version = "0.0.7"
 suffix = "1"
 ```
