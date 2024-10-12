@@ -1,0 +1,3 @@
+name = "twilio"
+terraform = "registry.terraform.io/RJPearson94/twilio"
+version = "0.26.1"
