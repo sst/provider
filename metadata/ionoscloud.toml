@@ -1,0 +1,3 @@
+name = "ionoscloud"
+terraform = "registry.terraform.io/providers/ionos-cloud/ionoscloud"
+version = "6.6.1"
