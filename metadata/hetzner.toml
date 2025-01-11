@@ -1,0 +1,3 @@
+name = "hetzner"
+terraform = "registry.terraform.io/opsheaven/hetzner"
+version = "0.2.0"
