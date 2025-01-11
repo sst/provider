@@ -1,0 +1,3 @@
+name = "singlestore"
+terraform = "registry.terraform.io/singlestore-labs/singlestoredb"
+version = "0.1.0-alpha.10"
