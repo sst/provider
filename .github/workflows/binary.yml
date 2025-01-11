@@ -23,6 +23,8 @@ jobs:
       - uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
+      - name: install pulumi
+        uses: pulumi/setup-pulumi@v2
       - run: |
           npm config set //registry.npmjs.org/:_authToken $NODE_AUTH_TOKEN
         env:
