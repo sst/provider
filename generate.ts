@@ -2,8 +2,6 @@ import { $ } from "bun";
 
 const dry = process.argv.includes("--dry");
 
-const $noThrow = new $.Shell().env(process.env).nothrow();
-
 for (const file of new Bun.Glob("*").scanSync("metadata")) {
   const provider = await import(`./metadata/${file}`);
   const version = [provider.version, provider.suffix].filter(Boolean).join("-");
@@ -15,7 +13,7 @@ for (const file of new Bun.Glob("*").scanSync("metadata")) {
   }
   console.log("generating", name, "version", version);
   const result =
-    await $noThrow`pulumi package add terraform-provider ${provider.terraform} ${provider.version}`;
+    await $`pulumi package add terraform-provider ${provider.terraform} ${provider.version}`;
   const path = result.stdout
     .toString()
     .match(/at (\/[^\n]+)/)

@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@types/bun": "^1.1.11"
+    "@pulumi/infisical": "file:sdks/infisical",
+    "@types/node": "^22.10.5"
   }
 }
