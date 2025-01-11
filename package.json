@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "@pulumi/infisical": "file:sdks/infisical",
     "@types/node": "^22.10.5"
   }
 }
