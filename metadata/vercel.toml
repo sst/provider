@@ -1,0 +1,3 @@
+name = "vercel"
+terraform = "registry.terraform.io/vercel/vercel"
+version = "2.15.1"
