@@ -1,0 +1,3 @@
+name = "bunnyway/bunnynet"
+terraform = "registry.terraform.io/BunnyWay/bunnynet"
+version = "0.7.5"
