@@ -1,0 +1,3 @@
+name = "bunnynet"
+terraform = "BunnyWay/bunnynet"
+version = "0.8.0"
