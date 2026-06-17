@@ -1,0 +1,3 @@
+name = "cloudfleet"
+terraform = "terraform.cloudfleet.ai/cloudfleet/cloudfleet"
+version = "0.1.11"
